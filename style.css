@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* ----------------------------------------------------------------
+flex-basis: 21% of flex container's width.
+- Didn't put 25% because of margin; will result in 3 boxes per row.
+-- Percentage allows for a responsive design.
+
+height: auto
+- Will be determined by content or related styling = .grid::before
+
+.grid::before
+- Pseudo-element.
+- content: ''; is for pseu-do element to be generated.
+- float: Causes pseudo-element to float to left of container.
+- padding-top: 100% of the width of the containing element.
+-- Ensures that pseudo-element expands to full-width of .grid element.
+-- Ensures that height becomes equal to width.
+-- Height of .grid will adjust based on space occupied by pseudo-element.
+------------------------------------------------------------------- */
+
+.grid {
+    flex-basis: 21%;
+    height: auto;
+    border: 1px solid black;
+}
+
+.grid::before{
+    content:'';
+    float: left;
+    padding-top: 100%;
+}
