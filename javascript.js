@@ -74,16 +74,16 @@ const changeSize = (event => {
         console.log(i);
     }
 
-    let styleSheet = document.styleSheets[0];
-    for (let i=0; i< styleSheet.cssRules.length; i++){
-        if (styleSheet.cssRules[i].selectorText === ".grid") {
-            let rule = styleSheet.cssRules[i];
-            console.log("Found .grid rule. Current flex:", rule.style.flex);
-            rule.style.flex = `1 1 ${Math.floor(calc(100% - 2em - 6px)/userInput)- 2}%`;
-            console.log("Updated flex:", rule.style.flex);
-            break;
-        }
-    }
+    // let styleSheet = document.styleSheets[0];
+    // for (let i=0; i< styleSheet.cssRules.length; i++){
+    //     if (styleSheet.cssRules[i].selectorText === ".grid") {
+    //         let rule = styleSheet.cssRules[i];
+    //         console.log("Found .grid rule. Current flex:", rule.style.flex);
+    //         rule.style.flex = `1 1 ${Math.floor((100/userInput))- 2}%`;
+    //         console.log("Updated flex:", rule.style.flex);
+    //         break;
+    //     }
+    // }
 });
 
 sizeButton.addEventListener("click", changeSize);
