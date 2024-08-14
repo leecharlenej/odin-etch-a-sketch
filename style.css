@@ -34,7 +34,7 @@ height: auto
 .grid {
     flex: 1 1 21%;
     height: auto;
-    border: 5px solid white;
+    border: 2px solid white;
 }
 
 .grid::before{

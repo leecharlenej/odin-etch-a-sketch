@@ -17,11 +17,13 @@ for (let i=0; i<16; i++) {
 let gridList = document.querySelectorAll(".grid");
 
 const handleMouseEnter = (event) => {
-    event.target.setAttribute("style", "background-color: rgb(97, 151, 223);");
+    event.target.style.backgroundColor = 'rgb(97, 151, 223)';
+    //event.target.setAttribute("style", "background-color: rgb(97, 151, 223);");
 };
 
 const handleMouseLeave = (event) => {
-    event.target.setAttribute("style", "background-color: black;");
+    event.target.style.backgroundColor = 'black';
+    //event.target.setAttribute("style", "background-color: black;");
 };
 
 for (let i=0; i<gridList.length; i++){
@@ -59,6 +61,9 @@ const changeSize = (event => {
         };
     };
 
+
+
+    flexNum = Math.floor(100/userInput)-2;
     squaresTotalNum = userInput**2;
     console.log(`Total squares: ${squaresTotalNum}`);
     blankSketchpad.innerHTML ="";
@@ -66,24 +71,17 @@ const changeSize = (event => {
     for (let i=0; i<squaresTotalNum; i++) {
         const div = document.createElement("div");
         div.classList.add("grid");
+        
 
         div.addEventListener("mouseenter", handleMouseEnter);
         div.addEventListener("mouseleave", handleMouseLeave);
 
+        div.style.flex = `1 1 ${flexNum}%`;
         blankSketchpad.appendChild(div);
-        console.log(i);
-    }
 
-    // let styleSheet = document.styleSheets[0];
-    // for (let i=0; i< styleSheet.cssRules.length; i++){
-    //     if (styleSheet.cssRules[i].selectorText === ".grid") {
-    //         let rule = styleSheet.cssRules[i];
-    //         console.log("Found .grid rule. Current flex:", rule.style.flex);
-    //         rule.style.flex = `1 1 ${Math.floor((100/userInput))- 2}%`;
-    //         console.log("Updated flex:", rule.style.flex);
-    //         break;
-    //     }
-    // }
+        
+        console.log(div);
+    }
 });
 
 sizeButton.addEventListener("click", changeSize);
