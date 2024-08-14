@@ -14,16 +14,20 @@ for (let i=0; i<16; i++) {
 // ----------------------------------
 // Create hover effect
 // ----------------------------------
-let grid = document.querySelector(".grid");
+let gridList = document.querySelectorAll(".grid");
 
 const handleMouseEnter = (event) => {
-    grid.setAttribute("style", "background-color: blue;");
+    event.target.setAttribute("style", "background-color: rgb(97, 151, 223);");
 };
 
 const handleMouseLeave = (event) => {
-    grid.setAttribute("style", "background-color: white;");
+    event.target.setAttribute("style", "background-color: rgb(248, 183, 248);");
 };
 
-grid.addEventListener("mouseenter", handleMouseEnter);
-grid.addEventListener("mouseleave", handleMouseLeave);
+for (let i=0; i<gridList.length; i++){
+    gridList[i].addEventListener("mouseenter", handleMouseEnter);
+    gridList[i].addEventListener("mouseleave", handleMouseLeave);
+}
+
+
 
