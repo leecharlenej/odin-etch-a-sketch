@@ -7,9 +7,13 @@
     width: 500px;
     height: 500px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     border: 1px solid black;
  
+}
+
+.row {
+    display: flex;
 }
 
 
