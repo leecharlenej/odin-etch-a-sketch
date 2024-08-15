@@ -1,7 +1,7 @@
 // ----------------------------------
 // Create hover effect
 // ----------------------------------
-let squareColour ='black';
+let isRandomColour = false;
 
 const handleMouseEnter = (event) => {
     event.target.style.backgroundColor = 'rgb(97, 151, 223)';
@@ -9,7 +9,7 @@ const handleMouseEnter = (event) => {
 };
 
 const handleMouseLeave = (event) => {
-    event.target.style.backgroundColor = squareColour;
+    event.target.style.backgroundColor = getRandomColour(isRandomColour);
     //event.target.setAttribute("style", "background-color: black;");
 };
 
@@ -91,17 +91,18 @@ resetButton.addEventListener("click", resetColours);
 
 let coloursButton = document.querySelector("#coloursButton");
 
-function getRandomColour () {
-    colour ='rgb('+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+')';
+function getRandomColour (boolVal) {
+    if (boolVal == false) {
+        colour = 'black';
+    } else {
+        colour ='rgb('+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+')';
+    }
     return colour;
 }
 
 function randomizeColours (event) {
-
-    squareColour = getRandomColour();
-    console.log(`Square color: ${squareColour}`);
+    isRandomColour = true;
 }
-
 
 coloursButton.addEventListener("click", randomizeColours);
 
