@@ -35,13 +35,13 @@ height: auto
 -- Height of .grid will adjust based on space occupied by pseudo-element.
 ------------------------------------------------------------------- */
 
-.grid {
-    flex: 1 1 21%;
+.square {
+    flex: 1 1 0;
     height: auto;
     border: 2px solid white;
 }
 
-.grid::before{
+.square::before{
     content:'';
     float: left;
     padding-top: 100%;
