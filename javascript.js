@@ -1,6 +1,7 @@
 // ----------------------------------
 // Create hover effect
 // ----------------------------------
+let isRandomColourFlag = 0;
 let isRandomColour = false;
 
 const handleMouseEnter = (event) => {
@@ -92,7 +93,7 @@ resetButton.addEventListener("click", resetColours);
 let coloursButton = document.querySelector("#coloursButton");
 
 function getRandomColour (boolVal) {
-    if (boolVal == false) {
+    if (boolVal ===  false) {
         colour = 'black';
     } else {
         colour ='rgb('+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+')';
@@ -101,7 +102,15 @@ function getRandomColour (boolVal) {
 }
 
 function randomizeColours (event) {
-    isRandomColour = true;
+    if (isRandomColourFlag === 0) {
+        isRandomColour = true;
+        isRandomColourFlag = 1;
+        coloursButton.textContent="Paint me black again!";
+    } else {
+        isRandomColour = false;
+        isRandomColourFlag = 0;
+        coloursButton.textContent="Make me a rainbow!";
+    }
 }
 
 coloursButton.addEventListener("click", randomizeColours);
