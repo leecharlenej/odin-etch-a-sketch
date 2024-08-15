@@ -1,7 +1,7 @@
 // ----------------------------------
 // Create hover effect
 // ----------------------------------
-// let gridList = document.querySelectorAll(".grid");
+let squareColour ='black';
 
 const handleMouseEnter = (event) => {
     event.target.style.backgroundColor = 'rgb(97, 151, 223)';
@@ -9,7 +9,7 @@ const handleMouseEnter = (event) => {
 };
 
 const handleMouseLeave = (event) => {
-    event.target.style.backgroundColor = 'black';
+    event.target.style.backgroundColor = squareColour;
     //event.target.setAttribute("style", "background-color: black;");
 };
 
@@ -89,5 +89,20 @@ resetButton.addEventListener("click", resetColours);
 // Randomize colours
 // ----------------------------------
 
+let coloursButton = document.querySelector("#coloursButton");
+
+function getRandomColour () {
+    colour ='rgb('+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+')';
+    return colour;
+}
+
+function randomizeColours (event) {
+
+    squareColour = getRandomColour();
+    console.log(`Square color: ${squareColour}`);
+}
+
+
+coloursButton.addEventListener("click", randomizeColours);
 
 
